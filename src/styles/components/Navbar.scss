@@ -1,0 +1,28 @@
+@import '../colors';
+
+
+.doctor-list-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    &-left {
+        &-title {
+            font-family: 'Gilroy-Bold';
+            font-size: 42px;
+        }
+    
+        &-subtitle {
+            font-size: 18px;
+        }
+
+        .back-button {
+            margin: -20px;
+            font-family: 'Gilroy-bold';
+            color: $color-main-gray;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

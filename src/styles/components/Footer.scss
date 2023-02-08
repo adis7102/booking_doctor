@@ -1,0 +1,10 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.footer {
+    padding: 40px 80px;
+    height: 120px;
+    font-size: 14px;
+    background-color: $color-dark-blue;
+    color: white;
+}

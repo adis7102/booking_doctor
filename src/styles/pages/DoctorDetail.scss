@@ -1,0 +1,81 @@
+@import '../colors';
+
+.doctor-detail {
+    padding: 0 20px;
+    margin-top: 30px;
+
+    &-back {
+        height: 300px;
+        width: 100%;
+        background-color: #fec8db;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top-left-radius: 150%;
+        border-top-right-radius: 10%;
+        z-index: -1;
+    }
+
+    &-header {
+        margin-bottom: 50px;
+
+        &-text {
+            font-size: 14px;
+            color: $color-main-gray;
+        }
+
+        &-name {
+            font-size: 48px;
+            line-height: 48px;
+            margin-bottom: 20px;
+            font-family: 'Gilroy-Bold';
+            margin-bottom: 20px;
+        }
+
+        &-address {
+            font-size: 14px;
+            color: $color-main-gray;
+            margin-bottom: 25px;
+        }
+
+        &-description {
+            font-size: 15px;
+            width: 70%;
+        }
+    }
+
+    &-schedule {
+        &-title {
+            font-size: 18px;
+            font-family: 'Gilroy-Bold';
+            margin-bottom: 20px;
+        }
+
+        &-list {
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: 70px 40px 20px 40px;
+
+            &-text {
+                font-size: 19px;
+                margin-right: 20px;
+
+                &.day {
+                    font-family: 'Gilroy-Bold';
+                }
+            }
+        }
+    }
+
+    &-book-button {
+        width: 200px;
+        margin-top: 50px;
+        float: right;
+    }
+}
+
+.form-appointment {
+    &-input {
+        margin-bottom: 20px;
+    }
+}
