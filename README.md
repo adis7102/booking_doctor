@@ -1,38 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 1. Choice of packages
 
-## Getting Started
+## 1). NextJS
+a. What's the purpose/importance of the package?
+- NextJS have many features that can be useful for your web development project.
 
-First, run the development server:
+b. What are the benefits & drawbacks associated with that choice?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<b>Benefits</b>
+ - built-in SSR support, with create-react-app / plain react, it's a little bit tricky to implement SSR, with NextJS we can simply use 'getServerSideProps' to use SSR.
+ - Easier routing, NextJS makes it easier for routing our component, in create-react-app, we have to install third party library to use routing in our project, in NextJS the routing is simply depending on file and folder inside '/pages' folder, and with 'Link' component, you can easily move around pages.
+ - SEO support, with it's built in SSR and 'Head' component, it's easier to add SEO related tags in the header of the page. with create-react-app, you have to use third party library to do that.
+ - Dynamic Imports, NextJS have built-in 'dynamic' component to make it easier to do dynamic imports, that have benefit of code splitting our component that can boost our page loads.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<b>Drawbacks</b>
+ - NextJs is still a new thing and not that many people using it, so if you have a problem, it will little bit harder to find a solution.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+c. What are the assumptions underlying that choice?
+- Even though it's still new, but NextJS provides many features that can be very useful for our project, and the number of people and company using it is growing day by day.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 2). Bootstrap
+a. What's the purpose/importance of the package?
+- The purpose of bootstrap on this project is to use bootstrap's components such as Modal, Alert.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+b. What are the benefits & drawbacks associated with that choice?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<b>Benefits</b>
+ - it makes the development of the project faster since we can use provided components rather than built it by our own, so it will save our time.
+ - Providing many components.
 
-## Learn More
+<b>Drawbacks</b>
+ - the provided components little bit hard to customize
+ - sometimes if you want to make a component you have to becareful with naming class, since bootstrap have their own class names for their components as well, so you have to be cautios that the class names not collided or same with the bootstrap, if that happen, your component will have bootstrap component's styling on it, for people that don't know about this it will be confusing.
 
-To learn more about Next.js, take a look at the following resources:
+c. What are the assumptions underlying that choice?
+- Bootstrap is well known UI Framework and widely used by many frontend developer in the world so the community is large, so that if we have a problem, it will be easier to find a solution for it.
+- Bootstrap is easy to use in React, the configuration to use Bootstrap on React project is pretty simple.
+- Bootstrap have good documentation.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3). Sass
+a. What's the purpose/importance of the package?
+- The purpose of using Sass in this project is to make it easier to style a component
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+b. What are the benefits & drawbacks associated with that choice?
 
-## Deploy on Vercel
+<b>Benefits</b>
+ - You can make variables of styling, so that if you need same style you can just add the variable name to use the same style.
+ - Nested rules, with Sass, you can nest your styling syntax so you can specifically style a component inside the parent component.
+ - @import rule can modularize your stylesheet file rather than do it in one big stylesheet file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<b>Drawbacks</b>
+ - You must know about Saas to use it, it will be dificult for a person that dont know about sass to continue the project, unless they try to read the documentation about Sass first.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+c. What are the assumptions underlying that choice?
+- Sass will make it simple for you to style your components with it's feature rather than using conventional css 
+
+
+# 2. Potential Improvement
+
+- If given more time, i would like to improve the web UI with responsive design.
+- Improving load performance.
+
+# 3. Production consideration
+
+- This project don't need any extra steps to deploy, everything is straight forward.
+
+# 4. Assumptions
+
+a. Any assumptions you have made when you designed the data model and API
+schema?
+
+- The API data is not that complex, so it makes showing the data to the page easier.
+
+b. Any other assumptions and opinions you have taken throughout the assessments?
+
+- The API response when error happens should be more descriptive.
+
+  let's say when we sent wrong booking data, the API should tell specifically which data is invalid, or when the booking time is not valid because it's more than doctor's availability, the API response should tell that rather than just giving message "invalid booking".

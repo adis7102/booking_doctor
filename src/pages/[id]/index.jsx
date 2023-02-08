@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Head from "next/head";
+import dynamic from 'next/dynamic'
 
 import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
@@ -18,11 +19,26 @@ import { TimeToFloat } from "@/helpers";
 
 import fetcher from "../../fetch/index.js";
 
-import Navbar from "@/components/Navbar";
-import Button from "@/components/Button";
-import Input from "@/components/Input";
-import DatePicker from "@/components/DatePicker";
-import TimePicker from "@/components/TimePicker";
+const Navbar = dynamic(() => import('../../components/Navbar'), {
+  loading: () => 'Loading...',
+  ssr: false
+});
+const Button = dynamic(() => import('../../components/Button'), {
+  loading: () => 'Loading...',
+  ssr: false
+});
+const Input = dynamic(() => import('../../components/Input'), {
+  loading: () => 'Loading...',
+  ssr: false
+});
+const DatePicker = dynamic(() => import('../../components/DatePicker'), {
+  loading: () => 'Loading...',
+  ssr: false
+});
+const TimePicker = dynamic(() => import('../../components/TimePicker'), {
+  loading: () => 'Loading...',
+  ssr: false
+});
 
 const DoctorDetail = ({ doctorDetail }) => {
   const { id, name, address, description, opening_hours } = doctorDetail || {};
@@ -38,7 +54,7 @@ const DoctorDetail = ({ doctorDetail }) => {
 
     const cloneFormData = JSON.parse(JSON.stringify(formData));
 
-    cloneFormData[name] = name === "start" ? TimeToFloat(value) : value;
+    cloneFormData[name] = name !== "start" ? value : TimeToFloat(value);
 
     setFormData(cloneFormData);
   };
@@ -63,6 +79,7 @@ const DoctorDetail = ({ doctorDetail }) => {
           status: "success",
           message: "Success to book an appointment!",
         });
+        setFormData(FORM_DATA_DEFAULT)
         setShow(!show);
       } else {
         setStatus({
